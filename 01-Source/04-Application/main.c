@@ -24,26 +24,27 @@ int main() {
 		} else if (distance <= 20) {
 			Stop_all();
 			servo_0();
-			_delay_ms(1000);
+			_delay_ms(400);
 			Right_dis = ultra_Get_distance();
 			servo_180();
-			_delay_ms(1000);
+			_delay_ms(400);
 			left_dis = ultra_Get_distance();
 			servo_90();
 			if (Right_dis > left_dis) {
 				Go_Right();
 				lcd_vidSendCmd(_LCD_CLEAR);
 				lcd_vidDisplayString((U8*) "Direc. = Right");
-				_delay_ms(1000);
+				_delay_ms(400);
 			} else if (left_dis > Right_dis) {
 				Go_Left();
 				lcd_vidSendCmd(_LCD_CLEAR);
 				lcd_vidDisplayString((U8*) "Direc. = Left");
-				_delay_ms(1000);
+				_delay_ms(400);
 			} else {
 				Go_Forword();
 				lcd_vidSendCmd(_LCD_CLEAR);
 				lcd_vidDisplayString((U8*) "Direc. = Forword");
+				_delay_ms(200);
 			}
 		}
 
